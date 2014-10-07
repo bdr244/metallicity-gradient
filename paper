@@ -1,0 +1,1058 @@
+\documentclass{emulateapj}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{multirow}
+%\usepackage[font=small]{caption}
+
+\newcounter{address}
+
+\begin{document}
+
+\title{Stellar Metallicity Gradients in SDSS galaxies}
+
+\author{
+Benjamin Roig\altaffilmark{1},
+Michael R. Blanton\altaffilmark{1},
+Renbin Yan\altaffilmark{2}
+}
+
+\altaffiltext{1}{
+  Center for Cosmology and Particle Physics, Department of Physics, New
+  York University, 4 Washington Place, New
+  York, NY 10003}
+\altaffiltext{2}{
+  University of Kentucky}
+
+\begin{abstract}
+We measure stellar metallicity and abundance gradients for a sample of red 
+galaxies in the Sloan Digital Sky Survey (SDSS). Because the survey does not 
+have multiple spectra at various radii in a single galaxy, we measure 
+gradients statistically. Galaxies are split into stellar mass bins and then 
+stacked 
+in redshift bins. Statistical gradients are calculated by subtracting the 
+measured absorption line values in neighboring redshift bins to determine the 
+equivalent widths of metallicity and age indicators for multiple stacked 
+annuli of a given stellar mass bin. After determining the indicators, we use 
+stellar 
+population modeling implemented by the EZ\_Ages code to calculate age and 
+metallicities at each annulus and then determine a gradient. We repeat this 
+analysis with binning by velocity dispersion instead of mass to check for potential 
+errors in the stellar mass calculation. Our data covers the
+central regions of these galaxies, out to approximately $1 R_{e}$. We find 
+that 
+existing gradients in abundances and metallicities
+are quite shallow, and only minorly dependent on stellar mass, and that our large 
+age 
+determination uncertainty strongly affects our ability to accurately find 
+any gradients. We compare our results to direct measures of gradients and 
+central values in 
+individual galaxies as well as theoretical predictions, and we find that our 
+results are nearly completely consistent with both.
+\end{abstract}
+
+\keywords{}
+
+
+
+
+\section{Introduction}
+
+The study of stellar population and metallicity gradients has been an ongoing 
+topic as it places relatively strong constraints on the evolutionary history 
+of galaxies. Events such as mergers (and the properties of galaxies prior to 
+merging) can drastically change the distribution of stars in the final 
+galaxies, effecting the observed metallicity gradients dramatically as well 
+\citep{dimatteo09a}. Equally, a lack of mergers can lead to an evolution of a 
+metallicity gradient after the infall of cooling gas \citep{pipino10a}. 
+Predicting the observed stellar metallicity gradients correctly requires a 
+model of the star formation and formation history (mergers or otherwise) of 
+galaxies. This suggests that a large-scale study of metallicity gradients in 
+elliptical galaxies may help our understanding of the average path an 
+elliptical galaxy takes in formation --- how many mergers, mass ratios of the 
+mergers, when star formation bursts occur, and how long these formation bursts 
+last, among many properties.
+
+Equally, observing metallicity gradients in a large sample of galaxies has 
+been a challenge, as it requires high-resolution spectra of multiple regions 
+of the same galaxy. Usually, then, observational studies that attempt to 
+constrain theoretical models are restricted to a relatively small number of 
+nearby galaxies \citep{greene13a, spolaor10a, kuntschner10a, rawle10a, 
+pastorello14a}, which limits their predictive 
+power. Here, we plan on studying a large number of galaxies observed by SDSS 
+and instead of finding metallicity gradients in individual galaxies, averaging 
+galaxies in redshift bins and calculating statistical gradients between annuli 
+found by subtracting galaxy fluxes at different radii from each other. 
+
+We begin by selecting a sample of non-starforming galaxies in SDSS, the 
+process of which is detailed in Section \ref{sec:sampleselect}. We measure 
+the standard Lick indicies used to calculate age and metallicity, and make 
+use of EZ\_AGES \citep{graves08a} to obtain those parameters. With our sample 
+complete, we compare our calculated gradients to several other studies in 
+Section \ref{sec:obs} to verify the accuracy of our approach, focusing on 
+studies that also are able to find gradients in the inner $1 R_{e}$ of 
+galaxies rather than ones
+that examine the full outer regions as well. We then examine 
+several papers that discuss theoretical models for the formation of these 
+galaxies to see which our observations support and what, if any, conclusions 
+we can draw about likely evolutionary histories of our galaxies in Section 
+\ref{sec:theory}. 
+
+With this larger data set, we hope to be able to see if we can match 
+theoretical models that will then tell us more detail about the formation 
+histories of these SDSS elliptical galaxies and place constraints on how 
+these galaxies must have evolved.
+
+\section{Sample Selection}
+
+\label{sec:sampleselect}
+
+Our sample is composed of a subset of the NYU-VAGC \citep{blanton05a}. This 
+catalog contains 686,356 objects with recorded spectra and several extracted
+values from the observations (redshift, a half-light radius, magnitudes in 
+several bands, and an estimate of the stellar mass). The stellar mass we use
+is k-corrected [MORE FROM RENBIN].
+
+We wish to select a uniform sample of non-starforming galaxies so that we can 
+have confidence that the properties remain relatively the same across the 
+entire redshift range of our study and avoid any emission line contamination 
+of the features we seek to measure. To do this, we perform a 
+few simple cuts involving [OII] and H$\alpha$ equivalent widths (EWs) as 
+previously done in \cite{yan06a} that yield cuts in spectroscopic properties. 
+First, objects that have [OII] emission but no H$\alpha$ are kept 
+in the sample. Second, any object with neither [OII] nor H$\alpha$ recorded 
+is kept. Finally, for objects with both [OII] and H$\alpha$, we keep ones 
+with a high ratio of [OII]/$H\alpha$ and reject those with a low ratio. We 
+define this ratio as \cite{yan06a} does $(EW([OII]) > 5 EW(H\alpha) - 7)$ 
+and we keep all objects that pass this ratio of those with both lines 
+detected. These cuts may potentially exclude some red, non-starforming 
+galaxies as the cost of being sure the number of blue, starforming galaxies 
+remaining in the sample is very low (approximately 3\% per \citealt{yan06a}).
+
+This leaves us with 266,195 non-starforming galaxies to work with. The next 
+set of cuts is to ensure that the data remaining has correctly recorded 
+results for all the important parameters that we will need. We remove all 
+objects with masses less than $10^{7}$ and all objects that do not have 
+recorded EWs for the metal lines (Mg b, Fe5270, Fe5335, Ca4227, and C4668) 
+that we will be using, as well as H$\beta$, which tends to happen only in the 
+rare case of a badly fit absorption line. This is a relatively minor 
+adjustment and only reduces our sample by approximately 4\%.
+
+Finally, metallicities are dependent on the stellar masses of the galaxies, and so we 
+break up the data into mass bins, each individually volume limited, the 
+details of which are given in Table \ref{table:massbins}. The galaxies are also divided
+into velocity dispersion bins, but the number of bins and volume limiting cuts in
+redshift and magnitude remain unchanged.
+
+\begin{table}[t!]
+  \centering
+  \caption{Volume Limited Mass Binning of Galaxies in this Paper}
+  \begin{tabular}{ c | c | c | c | c | c}
+$\log{(M)}$ Range & z Range & Max V Mag & Objects \\
+\hline
+$10.0 < \log{M} < 10.3$ & $0.02 < z < 0.09$ & -19.35 & 23324 \\
+$10.3 < \log{M} < 10.7$ & $0.02 < z < 0.12$ & -20.05 & 57381 \\
+$10.7 < \log{M} < 11.0$ & $0.03 < z < 0.18$ & -21.05 & 50880 \\
+$11.0 < \log{M} < 11.5$ & $0.07 < z < 0.24$ & -21.80 & 22029 \\
+\end{tabular}  
+\tablecomments{4 stellar mass bins are chosen for the galaxes in this paper to reduce 
+the effects of the mass dependence of metallicity. Each bin has a redshift range 
+and magnitude limit selected to maximize the number of objects in the sample 
+while ensuring that the sample remains volume limited.}
+  \label{table:massbins}
+\end{table}
+
+Figure \ref{fig:vollimit} shows the resulting samples with the cuts in red 
+lines.
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.4]{vollimit2.ps}
+  \caption{The cuts made to create a volume-limited sample for each stellar mass bin.}
+  \label{fig:vollimit}
+\end{figure}
+
+In preparation for Lick index measurement, we must make two adjustments to our
+spectra. The first is a resolution correction --- as \cite{zhu10a} notes when
+performing the same corrections, SDSS spectra are not at the same resolution
+at which the originally defined Lick indicies were observed. \cite{schiavon07a}
+contains several tables (Table 43-46, depending on galaxy age) in which corrections 
+for a given velocity dispersion to
+the Lick IDS resolution are defined, but these are empirical corrections and
+so to at least standardize the error, we smooth all galaxies in our sample to
+the same velocity dispersion of $325 km s^{-1}$. Any errors in this
+resolution correction will thus at least be the same for every galaxy, hopefully
+ensuring that any gradient trends we report will be independent of these
+errors. We use the table of corrections for a 7.9 gyear population, noting that while 
+some of our galaxies will be older and some younger, the differences are only a few 
+percent for corrections of a different stellar population age. The second correction, 
+also defined by \cite{schiavon07a}, is a fluxing
+correction to bring the SDSS spectra in line with the Lick IDS system. It too
+is empirical, with potentially large error, but we apply this correction after each 
+Lick index is recorded to fully bring our results in line with the Lick IDS system,
+noting unfortunately that errors from these corrections cannot be included in
+our error budget as well.
+
+Each object that is kept in the sample then has its Lick indices for Mg b, 
+Fe 5335, Fe 5270, Ca 4227, C 4668, and H$\beta$ measured. In addition to the 
+Lick index, we also measure the absorption line flux and continuum values 
+directly over the same wavelength range. We also measure the [OIII] line flux 
+to correct for H$\beta$ line infill due to emission (see \citealt{zhu10a, 
+trager00a, mehlert00a} for some discussion on the process and difficulties 
+behind this correction). We use the standard correction factor of 
+$\Delta$EW H$\beta = 0.6 EW([OIII])$ that these prior works settle on with the 
+understanding that it is empirical and has relatively large scatter, instead 
+of attempting a correction where we would directly adjust the flux (instead of 
+the equivalent width) of the H$\beta$ absorption based on the measured flux of 
+the [OIII] emission. In this 
+[OIII] line fitting, we ignore any lines that are weak detections (defined as 
+indistinguishable from zero line flux or line width at the one sigma level), 
+and simply do not correct H$\beta$ for those objects.
+
+We convert several other of the above measured Lick indices to more commonly 
+used combinations in calculations of metallicity as well. First we compute 
+$\mathrm{[MgFe]'=\sqrt{Mg b \times (0.72 Fe5270 + 0.28 Fe5335)}}$, and 
+secondly we compute $\mathrm{\langle Fe\rangle = (Fe5270 + Fe5335) / 2}$. Both 
+these combinations are chosen because they more directly correlate with 
+metallicity than any single Lick index \citep{thomas03a}. This gives us 5 
+metallicity indicators ($\mathrm{[MgFe]'}$, $\mathrm{\langle Fe\rangle}$, Mg 
+b, Ca 4227, C 4668) and one age-related indicator (corrected H$\beta$) for 
+each of our galaxies that we will analyze.
+
+\section{Data Analysis and Procedures}
+\label{sec:dataanalysis}
+
+SDSS does not have many spectra of multiple parts of individual galaxies to 
+study how the metallicity varies as a function of radius in a single object. 
+SDSS has a constant 3 arcsecond fiber. Thus, observing a galaxy at a low 
+redshift will measure the metallicity in a smaller aperture around the center 
+of the galaxy than a galaxy observed at higher redshift. This approach 
+mirrors that of \cite{yan12a}, who measured emission lines. Here, we are 
+attempting to localize the absorption lines by stacking galaxies and computing 
+the values in question in annuli of the galaxies.
+
+Each stellar mass bin is handled separately. Within each stellar mass bin, the objects 
+are divided up into redshift bins with the goal of having the maximal number 
+of bins without having any span too large a redshift range or contain too few 
+objects for statistical power. We need to balance the concern of flattening 
+the true gradient by having too few bins (see discussion in \citealt{yuan13a}) 
+with the concern that too many bins will cause differentials between bins to 
+be too small to be observed with our uncertainty being on the same order of 
+magnitude as the actual changes. We tested many binning choices and find that 
+changes to the binning choices have minimal impact in the determination of the 
+gradients, indicating that our results are relatively robust.
+
+Once the stellar mass bins are subdivided into redshift bins, we compute the average 
+value for the line and continuum luminosity of each metallicity indicator recorded 
+above for all the galaxies falling into that bin. For details of this sample's
+ binning, see Table \ref{table:binning}.
+
+We then can compute the Lick index for an annulus by calculating
+
+\begin{equation}
+\mathrm{\frac{line luminosity_{zbin 1} - line luminosity_{zbin 2}}{continuum luminosity_{zbin 1} - continuum luminosity_{zbin 2}}}
+\label{eqn:ew_annulus}
+\end{equation}
+for adjacent redshift bins zbin 1 and zbin 2. Knowing the redshift of each 
+object in a redshift bin and the SDSS aperture size (3 arcseconds diameter), 
+we can then compute the average redshift of each galaxy in a bin and then 
+convert that to a physical radius assuming standard cosmology ($H_{0}=70 
+km/s/Mpc$, $\Omega_{M}=0.3$, $\mathrm{\Omega_{total}}=1$). A radius 
+is then assigned to each annulus by taking the midpoint of the two redshift 
+bins' physical radii that the annulus is computed from. Thus, we are left 
+with the pairs of points (Lick index, physical radius) for each stellar mass bin, 
+which is plotted in Fig. \ref{fig:data_gradient} to measure a gradient. The 
+one exception to this is the innermost point --- this one is
+not an annulus but rather just the innermost redshift bin, and it is assigned
+a radius of half its maximum extent. One important detail that results from
+treating the innermost bin this way and binning in equal-redshift spacings is
+that the innermost redshift bin in each mass bin has a very large amount of
+impact on the gradient calculations --- it not only is used twice (once in the
+difference between bins 1 and 2 and once by itself as the innermost point), but
+it covers the largest range of radius and has the smallest number of objects of
+all the redshift bins in that stellar mass bin. Any errors that exist in that bin, 
+therefore, will have a much larger impact on our final results. Finally,
+because our annuli are no longer fully independent of each other, there should
+be a nonzero off-diagonal values in the covariance matrix. We neglect these
+terms and only consider the variance in plotting error bars for each point.
+
+This analysis is repeated identically, but replacing stellar mass with velocity
+dispersion in the initial step. We perform this step mainly for confirmation that
+our derived masses are accurate, but also so that we can more directly compare
+the results we find to papers that only report a velocity dispersion as a proxy
+for mass. Below we will present the results for both binning schemes, but as will
+be seen there are only a small number of differences.
+
+In addition, we also calculate an average galaxy radius for each stellar mass bin 
+using the average elliptical mass-radius relation discussed in several papers 
+(\citealt{chiosi12a, shen03a}, among others). For high-mass ellipticals such 
+as our sample here, the relation is approximately $\log{R_{1/2}} = 
+0.54\log{M/M_{*}} - 5.25$. For the stellar mass value, we use the average stellar 
+mass in each stellar mass bin. As mentioned in those papers, this half-mass radius is 
+not strictly identical to the effective radius $R_{e}$ but is usually quite 
+close. In this paper we will use $R_{1/2}$ as a proxy for $R_{e}$ in 
+comparison to other works and refer to it as $R_{e}$ only from now on. This 
+will allow for better comparison to theoretical works later in this paper.
+
+\begin{table}[t!]
+  \centering
+  \caption{Binning of Galaxies in this Paper}
+  \begin{tabular}{ c | c | c | c | c | c}
+$\log{(M)}$ Range & Objects & $z$ Min & $z$ Max \\
+\hline
+$10.0 < \log{M} < 10.3$ & 754 & 0.0200 & 0.0317 \\
+$10.0 < \log{M} < 10.3$ & 1763 & 0.0317 & 0.0434 \\
+$10.0 < \log{M} < 10.3$ & 2691 & 0.0434 & 0.0550 \\
+$10.0 < \log{M} < 10.3$ & 3823 & 0.0550 & 0.0667 \\
+$10.0 < \log{M} < 10.3$ & 6234 & 0.0667 & 0.0783 \\
+$10.0 < \log{M} < 10.3$ & 8057 & 0.0783 & 0.0900 \\
+$10.3 < \log{M} < 10.7$ & 1273 & 0.0200 & 0.0348 \\
+$10.3 < \log{M} < 10.7$ & 2800 & 0.0348 & 0.0490 \\
+$10.3 < \log{M} < 10.7$ & 4505 & 0.0490 & 0.0632 \\
+$10.3 < \log{M} < 10.7$ & 8540 & 0.0632 & 0.0774 \\
+$10.3 < \log{M} < 10.7$ & 11587 & 0.0774 & 0.0916 \\
+$10.3 < \log{M} < 10.7$ & 11889 & 0.0916 & 0.1058 \\
+$10.3 < \log{M} < 10.7$ & 16785 & 0.1058 & 0.1200 \\
+$10.7 < \log{M} < 11.0$ & 832 & 0.0300 & 0.0514 \\
+$10.7 < \log{M} < 11.0$ & 2268 & 0.0514 & 0.0729 \\
+$10.7 < \log{M} < 11.0$ & 4449 & 0.0729 & 0.0943 \\
+$10.7 < \log{M} < 11.0$ & 6110 & 0.0943 & 0.1157 \\
+$10.7 < \log{M} < 11.0$ & 9964 & 0.1157 & 0.1371 \\
+$10.7 < \log{M} < 11.0$ & 11904 & 0.1371 & 0.1586 \\
+$10.7 < \log{M} < 11.0$ & 15351 & 0.1586 & 0.1800 \\
+$11.0 < \log{M} < 11.5$ & 708 & 0.0700 & 0.0983 \\
+$11.0 < \log{M} < 11.5$ & 1415 & 0.0983 & 0.1267 \\
+$11.0 < \log{M} < 11.5$ & 2630 & 0.1267 & 0.1550 \\
+$11.0 < \log{M} < 11.5$ & 4160 & 0.1550 & 0.1833 \\
+$11.0 < \log{M} < 11.5$ & 5685 & 0.1833 & 0.2117 \\
+$11.0 < \log{M} < 11.5$ & 7429 & 0.2117 & 0.2400 \\
+\end{tabular}  
+\tablecomments{Details of how galaxies are binned by stellar mass in this 
+paper. A bin is 
+first divided on the basis of the stellar mass of the galaxies (units are 
+solar masses). Following that, the galaxies are divided into bins of equal 
+size in redshift. All the limits are set such that the lower limit is 
+inclusive and the upper is exclusive to avoid overlap.}
+  \label{table:binning}
+\end{table}
+
+With the values computed for the various metallicity indicators in each 
+annulus, we chose to use EZ\_Ages \citep{graves08a} to compute the actual 
+metallicities as well as several other parameters. EZ\_Ages uses iterative 
+fitting of the stellar population models described in \cite{schiavon07a} to 
+determine the best-fit metallicity and age from the Lick indices we have 
+recorded. We applied EZ\_Ages to the stacked annuli, not the individual 
+objects. We use solar isochrones and a Salpeter initial mass function with 
+exponent 1.35 as inputs for all galaxies. Changing to $\alpha$-enhanced 
+isochrones was tested with minimal impact on the overall results, although a 
+small number of points no longer fit on the age-metallicity grid. The results
+of the EZ\_Ages fitting is shown in Fig. \ref{fig:ezages_gradient}. With 
+metallicities computed, we perform linear regression to compute the gradient 
+for each stellar mass and velocity dispersion bin separately.
+
+\section{Results}
+
+Our results are shown in the 8 figures below. The first four (Figures 
+\ref{fig:data_gradient}, \ref{fig:ezages_gradient}, \ref{fig:data_gradient_rre}, and 
+\ref{fig:ezages_gradient_rre}) are the results based on the stellar mass binning approach.
+The second four (Figures \ref{fig:data_gradient_sigma}, \ref{fig:ezages_gradient_sigma}, 
+\ref{fig:data_gradient_rre_sigma}, and \ref{fig:ezages_gradient_rre_sigma}) are the results
+based on the velocity dispersion binning approach. The lines plotted in all eight are the 
+linear fitting results shown in Table \ref{table:gradients} and Table 
+\ref{table:gradients_re} (for stellar mass binning) and Table \ref{table:gradients_sigma} 
+and Table \ref{table:gradients_re_sigma} (for velocity dispersion binning) where the exact 
+values are listed for more precise comparisons. The units are dex $\mathrm{kpc^{-1}}$ in 
+radius.
+
+One note is that we found a systematic mis-measurement of the H $\beta$ line
+in the $10.7 < \log{M} < 11.0$ mass bin, due to part of 
+the redshift range it covers.
+The H $\beta$ line for one of the points is redshifted on top of the 
+OI 5577 sky line, and often incorrectly (and dramatically) increases the 
+flux measured in the line. This leads to a too-large H $\beta$ line, and 
+a too-young age, as well as a slight increase in [Fe/H] and [Mg/Fe] for 
+that one point. This point is left on all plots, but not used in the fits,
+and is tinted a slightly lighter red in color to indicate the presence of 
+bad data. This issue is not as clearly present in the velocity dispersion 
+binning due to a wider redshift coverage per bin causing the bad data to 
+be covered up by the averaging of enough good points, so no masking is used.
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[scale=0.65, angle=90]{metalvsr_annulus_calib.ps}
+  \caption{The gradients found for each metallicity indicator. Each stellar mass bin 
+is represented with a different color: $10.0 < \log{M} < 10.3$ is blue, 
+$10.3 < \log{M} < 10.7$ is green, $10.7 < \log{M} < 11.0$ is red, and 
+$11.0 < \log{M} < 11.5$ is brown}
+  \label{fig:data_gradient}
+\end{figure*}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.45, trim=0 2.7in 0 0, clip=true]{metalvsr_annulus_calib_ezages.ps}
+  \caption{The gradients found for the metallicity, age, and several 
+[$\alpha$/Fe] ratios computed using EZ\_Ages. Colors are the same as Fig. 
+\ref{fig:data_gradient}. Binning is done based on stellar mass.}
+  \label{fig:ezages_gradient}
+\end{figure}
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[scale=0.65, angle=90]{metalvsr_annulus_rre_calib.ps}
+  \caption{Similar to Fig. \ref{fig:data_gradient}, but with all radii scaled
+to the effective radius. Colors are the same as Fig. \ref{fig:data_gradient}. Binning 
+is done based on stellar mass.}
+  \label{fig:data_gradient_rre}
+\end{figure*}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.45, trim=0 2.7in 0 0, clip=true]{metalvsr_annulus_rre_calib_ezages.ps}
+  \caption{Similar to Fig. \ref{fig:ezages_gradient}, but with all radii scaled
+to the effective radius. Colors are the same as Fig. \ref{fig:data_gradient}. Binning 
+is done based on stellar mass.}
+  \label{fig:ezages_gradient_rre}
+\end{figure}
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[scale=0.65, angle=90]{metalvsr_annulus_calib_sigma.ps}
+  \caption{The gradients found for each metallicity indicator, but with the initial binning
+done by velocity dispersion and not stellar mass. Each velocity dispersion bin is a 
+different color: 30 $km/sec$ to 125 $km/sec$ blue, 125 $km/sec$  to 185 $km/sec$ green, 
+185 $km/sec$ to 230 $km/sec$ red, 230 $km/sec$ to 325 $km/sec$ brown.}
+  \label{fig:data_gradient_sigma}
+\end{figure*}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.45, trim=0 2.7in 0 0, clip=true]{metalvsr_annulus_calib_ezages_sigma.ps}
+  \caption{The gradients found for the metallicity, age, and several 
+[$\alpha$/Fe] ratios computed using EZ\_Ages. Colors are the same as Fig. 
+\ref{fig:data_gradient_sigma}. and binning is done on the basis of velocity dispersion.}
+  \label{fig:ezages_gradient_sigma}
+\end{figure}
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[scale=0.65, angle=90]{metalvsr_annulus_rre_calib_sigma.ps}
+  \caption{Similar to Fig. \ref{fig:data_gradient_sigma}, but with all radii scaled
+to the effective radius. Colors are the same as Fig. \ref{fig:data_gradient_sigma}. 
+Binning is done based on velocity dispersion.}
+  \label{fig:data_gradient_rre_sigma}
+\end{figure*}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.45, trim=0 2.7in 0 0, clip=true]{metalvsr_annulus_rre_calib_ezages_sigma.ps}
+  \caption{Similar to Fig. \ref{fig:ezages_gradient_sigma}, but with all radii scaled
+to the effective radius. Colors are the same as Fig. \ref{fig:data_gradient_sigma}. 
+Binning is done based on velocity dispersion.}
+  \label{fig:ezages_gradient_rre_sigma}
+\end{figure}
+
+There is a wide range of important conclusions to draw from these data. Before 
+moving to the analysis, it's worth simply listing some of the notable facts.
+
+\begin{enumerate}
+    \item All the metallicity indicators show a negative gradient when plotted
+    both versus physical radius and $R/R_{e}$.
+    \item All the measured indicator gradients as a function of physical 
+    radius tend to flatten with increased stellar mass.
+    \item Nearly all the trends are detected with high significance.
+    \item The calculated ages as a function of radius has very large scatter, 
+    with ages ranging from 2 to 12 billion years.
+    \item The gradients for [Fe/H] and [C/Fe] are generally declining, while the gradient 
+    for [Mg/Fe] is generally flat. 
+    \item Theere is a slight increase in the central value of [C/Fe], while the central 
+    [Fe/H] and [Mg/Fe] values are nearly constant.
+    \item There are no extreme differences between the results from the stellar
+    mass binning and the velocity dispersion binning.
+\end{enumerate}
+
+What looks likely from these results is that we can determine metallicities 
+rather well, but due to the uncertainty in our H$\beta$ measurements, our age 
+determinations have a large amount of scatter. Some of the H$\beta$ 
+uncertainty is driven by the inherent scatter in the [OIII] correction to 
+H$\beta$ line infill, some results from the extra difficulty in measuring two 
+lines (instead of one) precisely, and some results from the expected slight 
+differences amongst these galaxies that will add some scatter to our points 
+as well. Due to the lack of trend we find in the age points, we do not fit 
+these data points linearly --- they are simply shown with error bars at each 
+radius.
+
+We can also see that our stellar masses and velocity dispersions correlate very closely,
+as they should. We will use both interchangably for comparison to prior works, depending
+on what data the paper in question offers, as our conclusions are the same regardless.
+
+If we consider the $R/R_{e}$ plots (Figures \ref{fig:data_gradient_rre}, 
+\ref{fig:ezages_gradient_rre}, \ref{fig:data_gradient_rre_sigma}, 
+\ref{fig:ezages_gradient_rre_sigma}; values given in Table \ref{table:gradients_re} 
+and \ref{table:gradients_re_sigma}), we also find that stellar mass or velocity dispersion 
+only influences the fitted gradients slightly --- the [Fe/H] plot shows a steadily 
+increasingly negative central metallicity as stellar mass increases, but the 
+gradient stays mostly constant (contrary to expectations, although similar 
+to recent findings in \citealt{pastorello14a}). This trend in 
+central metallicities is loosely reflected in the $\mathrm{[MgFe]'}$ and 
+$\mathrm{\langle Fe\rangle}$ plots as well, as would be expected. Other metals 
+such as [C/Fe] and the indicators C 4668 and Mg b show no clear dependencies 
+on stellar mass in gradient or central values, however.
+
+Finally, we calculate logarithmic gradients for [Fe/H], [Mg/Fe], and [C/Fe] for each
+stellar mass and velocity dispersion bin. These results are shown in Figures
+\ref{fig:massgrad} and \ref{fig:massgrad_sigma}, with the plotted values given in
+Tables \ref{table:loggrads} and \ref{table:loggrads_sigma}. We find in general very
+little dependence of the gradients on either mass or velocity dispersion. The only
+exceptions are a very small trend towards flattening gradients in [Fe/H] as a function
+of velocity dispersion, and the lowest mass bin gradient of ]Fe/H] as a function of
+mass which is much steeper than the others.
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.45, trim=0 2.7in 0 0, clip=true]{massgradient.ps}
+  \caption{The stellar mass dependence of the [Fe/H], [Mg/Fe], and [C/Fe]
+logarithmic gradients as calculated in Table \ref{table:loggrads}. Broadly 
+speaking we find a constant [Fe/H] (with the exception of the lowest stellar mass 
+bin which shows a much steeper gradient), [Mg/Fe] and [C/Fe] gradient as a function 
+of stellar mass.}
+  \label{fig:massgrad}
+\end{figure}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[scale=0.45, trim=0 2.7in 0 0, clip=true]{massgradient_sigma.ps}
+  \caption{The stellar mass dependence of the [Fe/H], [Mg/Fe], and [C/Fe]
+logarithmic gradients as calculated in Table \ref{table:loggrads_sigma}. Broadly 
+speaking we find a very slightly flattening [Fe/H] gradient, and a constant [Mg/Fe] 
+and [C/Fe] gradient as a function of velocity dispersion.}
+  \label{fig:massgrad_sigma}
+\end{figure}
+
+\begin{table}[t!]
+  \caption{Logarithmic Gradients: Stellar Mass Binning}
+  \begin{tabular}{ c | c | c | c }
+Measure & $\log{M}$ & $d(Measure)/d\log{r}$ & Error \\
+\hline
+$[Fe/H]$ & $10.0 < \log(M) < 10.3$ &  -0.3356 &  0.0657 \\
+$[Fe/H]$ & $10.3 < \log(M) < 10.7$ &  -0.1274 &  0.0294 \\
+$[Fe/H]$ & $10.7 < \log(M) < 11.0$ &  -0.1478 &  0.0325 \\
+$[Fe/H]$ & $11.0 < \log(M) < 11.5$ &  -0.1947 &  0.0701 \\
+$[Mg/Fe]$ & $10.0 < \log(M) < 10.3$ &  0.1019 &  0.2197 \\
+$[Mg/Fe]$ & $10.3 < \log(M) < 10.7$ &  -0.0271 &  0.1374 \\
+$[Mg/Fe]$ & $10.7 < \log(M) < 11.0$ &  0.1321 &  0.1263 \\
+$[Mg/Fe]$ & $11.0 < \log(M) < 11.5$ &  0.0840 &  0.2212 \\
+$[C/Fe]$ & $10.0 < \log(M) < 10.3$ &  -0.1584 &  0.1770 \\
+$[C/Fe]$ & $10.3 < \log(M) < 10.7$ &  -0.2199 &  0.1329 \\
+$[C/Fe]$ & $10.7 < \log(M) < 11.0$ &  -0.0580 &  0.1423 \\
+$[C/Fe]$ & $11.0 < \log(M) < 11.5$ &  -0.1198 &  0.2476 \\
+\end{tabular}
+  \tablecomments{The calculated logarithmic gradients for the metallicity and 
+[$\alpha$/Fe] ratios for all four stellar mass bins.}
+  \label{table:loggrads}
+\end{table}
+
+\begin{table}[t!]
+  \caption{Logarithmic Gradients: Velocity Dispersion Binning}
+  \begin{tabular}{ c | c | c | c }
+Measure & $Vdisp$ & $d(Measure)/d\log{r}$ & Error \\
+\hline
+$[Fe/H]$ & $30 < Vdisp < 125$ &  -0.2868 &  0.0719 \\
+$[Fe/H]$ & $125 < Vdisp < 185$ &  -0.1809 &  0.0298 \\
+$[Fe/H]$ & $185 < Vdisp < 230$ &  -0.1724 &  0.0371 \\
+$[Fe/H]$ & $230 < Vdisp < 325$ &  -0.1401 &  0.0655 \\
+$[Mg/Fe]$ & $30 < Vdisp < 125$ &  0.0942 &  0.1359 \\
+$[Mg/Fe]$ & $125 < Vdisp < 185$ &  -0.0207 &  0.1464 \\
+$[Mg/Fe]$ & $185 < Vdisp < 230$ &  0.1413 &  0.1698 \\
+$[Mg/Fe]$ & $230 < Vdisp < 325$ &  0.0545 &  0.3335 \\
+$[C/Fe]$ & $30 < Vdisp < 125$ &  -0.0824 &  0.2284 \\
+$[C/Fe]$ & $125 < Vdisp < 185$ &  -0.1457 &  0.1329 \\
+$[C/Fe]$ & $185 < Vdisp < 230$ &  0.0243 &  0.1732 \\
+$[C/Fe]$ & $230 < Vdisp < 325$ &  -0.2330 &  0.1958 \\
+\end{tabular}
+  \tablecomments{The calculated logarithmic gradients for the metallicity and 
+[$\alpha$/Fe] ratios for all four velocity dispersion bins.}
+  \label{table:loggrads_sigma}
+\end{table}
+
+
+\section{Comparison to Previous Observational Studies}
+\label{sec:obs}
+
+We essentially have three main results being tested: the gradients for the
+EZ\_AGES outputs ([Fe/H], [C/Fe], and age), the trend in their central values with 
+mass, and the trend in their gradients with mass. Each of these have been studied in
+other papers and give us a basis to check our data with.
+
+Some of the papers we will examine do not use the same stellar population models --- 
+they instead use the very slightly different models from \cite{thomas03a} (TMB).
+These models differ slightly in the outputs they produce, with the TMB models
+giving [Z/H] and [$\alpha$/Fe] instead of the EZ\_AGES output of [Fe/H], [Mg/Fe], and [C/Fe]. 
+Fortunately, \cite{thomas03a} proposes a conversion between the two measures of 
+[Fe/H] = [Z/H] - 0.94[$\alpha$/Fe], which we will use to compare our observations to 
+those papers that use the TMB models. For the $\alpha$-elements, the TMB models assume
+that all $\alpha$-elements track Mg, so we can compare our [Mg/Fe] to the [$\alpha$/Fe]
+values. [C/Fe] will have no analog in those cases.
+
+
+\subsection{Gradients}
+
+We begin with \cite{greene13a}, who study 33 nearby galaxies and measures similar 
+metallicity indicators to our survey, also using EZ\_Ages to convert the data into 
+physical parameters. They observe a much larger extent of the galaxies than we do,
+out to about 14 kpc, but they do have data in the innermost portions for us to
+compare to. They find a [Fe/H] gradient of around -0.3 to -0.5 dex $\mathrm{kpc^{-1}}$, 
+slightly steeper than
+ours, with the exception of the lowest velocity dispersion bin.
+However, their findings for [Mg/Fe] and [C/Fe] mirror ours quite closely, with
+a constant [Mg/Fe] gradient in both velocity dispersion bins like all four of ours,
+and a [C/Fe] gradient of around -0.1 to -0.2 dex $\mathrm{kpc^{-1}}$ 
+like our data shows as well.
+
+Some of the [Fe/H] discrepency may be explained by the differing radial coverage.
+\cite{greene13a} observes a much larger radius, which gives a chance for gradients
+to steepen in the outskirts.
+
+A similar study by \cite{mehlert03a} studied the metallicity gradients in of 
+early-type galaxies in the Coma Cluster using the data from in 
+\cite{mehlert00a}. Rather than using EZ\_Ages to model the metallicity and
+age, they use the model in \cite{thomas03a}, with the differences discussed above.
+
+The results in \cite{mehlert03a} mirror \cite{greene13a} in finding a 
+declining [Fe/H] and constant age and [$\alpha$/Fe] gradient. We can calcuate 
+similar logarithmic index gradients (per Equation 5 in \citealt{mehlert03a}, given 
+in Table \ref{table:loggrads}) to compare the values of the metallicity indicators in 
+our stacked annuli to their results. However, they cover a much smaller range in radius,
+only out to about $0.1 R_{e}$, which is a more central region that our objects as well.
+Their [Fe/H] gradient is much shallower than the results in \cite{greene13a}, as they
+only examine the central area --- it matches our data nearly exactly, with a gradient
+of around -0.1 to -0.2 dex.
+
+We also compare our results to the study in \cite{spolaor10a}, where 
+14 low-mass ellipticals in the Forrnax and Virgo clusters were examined in 
+detail and compared to several higher mass ellipticals from previous studies. 
+The results are measured in similar form to \cite{mehlert03a}, also using the 
+models of \cite{thomas03a}, with similar results of a declining [Fe/H] ($-0.22\pm0.14 dex^{-1}$ 
+averaged across all mass bins) and roughly constant [$\alpha$/Fe] gradient, in agreement 
+with our results as well. Importantly as well, \cite{spolaor10a} reports data out to
+between 1 and 3 effective radii, almost perfectly in line with the range we cover as well.
+
+Finally, we also consider two studies of the gradients in inner regions of
+galaxies: \cite{rawle10a} and \cite{kuntschner10a}. Both these studies record
+metallicity values out to $1 R_{e}$, making their coverage of galaxies
+similar to ours, although both only calculate a [$\alpha$/Fe] ratio (which
+tracks Mg) and not a [C/Fe] ratio. Both studies find a slightly negative
+metallictity gradient, matching our observations --- \cite{rawle10a} finds
+an average gradient of $-0.13 \pm 0.04 dex^{-1}$ and \cite{kuntschner10a} finds an
+average gradient of $-0.25 \pm 0.11 dex^{-1}$, with values ranging from -0.1 to -0.5
+much like our results and other studies. Also in agreement with our observations,
+\cite{kuntschner10a} report an [$\alpha$/Fe] gradient consistent with zero.
+
+ 
+\subsection{Trend in central values with mass}
+
+We next turn to trends in the central values. The galaxies in \cite{greene13a} show 
+an increase in central metallicity with mass at a fixed radius, while our galaxies predict
+a nearly constant value of the central metallicity. Our trends with mass agree in the 
+[C/Fe] ratio, with both reflecting a slight increase in central values with stellar mass, 
+and also the central [Mg/Fe] ratio with both \cite{greene13a} and our results finding it 
+to be roughly constant. It is important to note
+that our central values are measured around the 0.3 kpc mark while the innermost
+data point for \cite{greene13a} is around 2 kpc, meaning that we are likely not comparing
+the same portions of the galaxies here. That being said, this trend with mass persists
+across all radii in our survey (with the exception of the lowest mass or velocity 
+dispersion bin), so if we instead compared our data points at 2 kpc to those in 
+\cite{greene13a}, we would draw essentially the same conclusions.
+
+\cite{mehlert03a} report central values for [Z/H] and [$\alpha$/Fe] as a function of 
+mass as well. They find an increasing [Z/H] and [$\alpha$/Fe], which corresponds 
+(with their reported values) to a slightly increasing [Fe/H] and an increasing [Mg/Fe]. 
+Our nearly constant central [Fe/H] shows some potential (but very minor) evidence for
+an increase with mass, so while we disagree with their result, large error bars may be
+masking agreement in part; in addition, we do find that the lowest mass bin (see Fig. 
+\ref{fig:ezages_gradient}) does have a smaller value of [Fe/H] so while the overall 
+trend is constant, there is some evidence for an increase with mass.
+
+\subsection{Trend in gradients with mass}
+
+For trends in gradients with stellar mass of these measured values, we mostly find 
+agreement with \cite{greene13a}. Three of the four of our calculated metallicity gradients 
+are very 
+close to constant within error as stellar mass increases, as found by \cite{greene13a} 
+as well, with the only exception being the lowest stellar mass bin. It's important to
+note the one discrepency between the stellar mass binning and the velocity dispersion
+binning here --- in the velocity dispersion binning, there is no outlier in the lowest
+velocity dispersion bin. This reinforces the agreement with \cite{greene13a} of finding
+constant gradients as a function of mass, as there is extra uncertainty added in deriving
+the stellar masses that may impact the binning. Figs. \ref{fig:massgrad} or 
+\ref{fig:massgrad_sigma} show these trends with stellar mass and velocity dispersion in 
+more detail. Similarly for [Mg/Fe] and [C/Fe], we find no definitve trends in the
+gradients as a function of mass or velocity dispersion, which is the same as 
+\cite{greene13a}.
+
+\cite{spolaor10a} does 
+cover enough of a stellar mass range to check for any mass dependency of these 
+gradients, and does find a slight steepening of the metallicity gradient as 
+stellar mass increases for high-mass ellipticals, although the scatter increases as 
+well. As will be discussed more in the theory section, this
+scatter is attributed to the wide variety of merger histories available to
+high-mass ellipticals \citep{dimatteo09a}, leading to a wide variety of 
+potential final, observed gradients. As the lowest velocity dispersion bin in
+the sample of \cite{spolaor10a} is only overlapping with our lowest mass bin, and
+the three higher mass bins in our sample are all lumped together into a single high
+velocity dispersion bin in \cite{spolaor10a}, we find some slight evidence for
+the opposite trend (a flattening gradient), although the scatter is rather large. 
+More encouragingly, the bins that overlap most completely (covering a range of velocity
+dispersions $2.1 < \log{\sigma} < 2.6$) have very similar recorded gradients 
+(-0.23 $dex^{-1}$ in \cite{spolaor10a} and -0.2 to -0.3 $dex^{-1}$ in our sample).
+
+Both \cite{rawle10a} and \cite{kuntschner10a} find
+similar results to most of the previously discussed studies: a large amount
+of scatter, and evidence for a varied evolutionary path of these galaxies.
+However, \cite{kuntschner10a} does notice a slight trend that is partially
+reflected in our data. At low masses, \cite{kuntschner10a} reports an increasingly
+negative metallicity gradient (up to about $3.5 \times 10^{10}$ solar masses), followed
+by a turnover and flattening metallicity gradient as mass increases further. We
+have far fewer points to use to determine trends with mass, but our lowest-mass
+point is indeed the steepest gradient, with all higher-mass ones showing
+some evidence of flattening out (see Figs. \ref{fig:massgrad} and \ref{fig:massgrad_sigma}, 
+and Tables \ref{table:loggrads} and \ref{table:loggrads_sigma}). 
+However the granularity of our data prevents
+us from checking in detail at which mass we find this turnover to be at to
+further compare to the observations in \cite{kuntschner10a}.
+
+Realistically, the large error bars present in the determination of the metallicity 
+gradients prevent us from concluding anything too firm; we mostly can say that it
+appears that the gradient very slightly flattens with stellar mass or velocity dispersion, 
+and is close to constant above a certain stellar mass or velocity dispersion cutoff around 
+$3 \times 10^{10}$ solar masses, which is not in disagreement with any of the studies 
+we found.
+
+\subsection{General conclusions}
+
+To sum up the wide variety of comparisons presented, we begin with the similarities. 
+There is good agreement with finding a negative [Fe/H] gradient, a constant [Mg/Fe], 
+and a very slightly negative [C/Fe] gradient, even if the numerical results presented have a fairly 
+large amount of scatter. For trends in central values as mass (or velocity dispersion) 
+increases, we find agreement with a constant central [Mg/Fe] and [Fe/H], and increasing
+central [C/Fe].
+
+Finally, we find that we in general agree with the trends in gradients of [Fe/H] with
+mass as well --- with a steeper gradient in the lowest mass objects, and then a flatter 
+although still negative gradient for higher mass galaxies, with the gradient leveling 
+out to be roughly constant with mass. [Mg/Fe] shows agreement here as 
+well, with no real trends reported with mass in the gradients.
+
+We also do not see the dramatic increase in scatter as shown in 
+\cite{kuntschner10a} and others in our [Fe/H] gradient as we increase mass, which 
+theory also predicts, although our error bars are rather large to begin with, perhaps
+masking the natural scatter present.
+
+\section{Comparison to Theory}
+\label{sec:theory}
+
+Many papers have modeled various galaxy evolution features, and in general 
+they have found that mergers tend to flatten gradients and monolithic collapse 
+models tend to steepen them \citep{pipino10a, dimatteo09a}. Because in reality 
+both mergers and collapse effects are occuring, the predicted results lie 
+along a continuum of flat to steep gradients, with substantial scatter amongst 
+the observations due to differing degrees of these two effects for each 
+individual galaxy \citep{pipino10a}. Thus we do not expect perfect agreement 
+with any individual models but rather that our data lie somewhere in between 
+results reported by merger-focused simulations and monolithic collapse-focused 
+simulations. 
+
+When comparing our gradient values to those in \cite{hopkins09a}, who 
+simulated merger models, we find general agreement. Most of their metallicity 
+gradients are between -0.1 and -0.6 dex, while our results (shown in Table 
+\ref{table:loggrads}) are around -0.1 to -0.4 dex. Similar conclusions are 
+drawn by \cite{kobayashi03a} who finds gradients in the range of -0.2 to 
+-0.8 dex. \cite{kobayashi03a} simulates both merging and monolithically 
+collapsing galaxies, and it is important to note that within the spread of the 
+results, our data agrees with both sets. \cite{dimatteo09a} handles mergers in 
+more detail than most simulations, recording gradients that result from 
+various mass ratios and various initial metallicity gradients of merging 
+galaxies. The results again show metallicity gradients of about -0.1 to -0.4 
+dex, but are dependent on the type of mergers that have occurred to form the 
+final galaxies as expected. As we do not know the merger history of the 
+galaxies we observed, all we can conclude is that for reasonable initial 
+metallicity gradients and merger histories, our results again are in agreement 
+with the simulations of \cite{dimatteo09a}.
+
+Another interesting property to investigate is if trends with stellar mass exist. Our 
+results (see Fig. \ref{fig:massgrad}) suggest that all three gradients are 
+roughly constant with stellar mass, with perhaps a slightly flattening [Fe/H] depending
+on how much the lowest stellar mass bin is believed. Simulations give varied results 
+depending on the merger history of 
+the galaxies, with \cite{dimatteo09a} noting methods that can give rise to both
+flatter and steeper gradients depending on the stellar masses of merging galaxies and 
+their initial gradients, and thus proposing that little trend should exist 
+overall but scatter should increase. Other models predict no clear trend and 
+increasing scatter as well (see \citealt{pipino10a, kobayashi03a}). Some models
+do predict a correlation \citep{kawata03a}, but only take into account
+hierarchical collapse and not the interplay of mergers as well. In general, 
+though, the conclusions are broadly suggestive that metallicity gradients 
+should slightly steepen with increasing stellar mass, albeit with increased scatter as 
+well \citep{ogando05a} due to higher stellar mass galaxies being allowed a larger 
+variety of possible evolution paths that will change how their gradients 
+develop. We find no clear trend in [Fe/H] gradient with stellar mass, however there is
+some support for a very slight steepening in the three higher stellar mass bins. This,
+however, is not reflected by the velocity dispersion binning, which show (if any trend)
+the opposite one of a flattening gradient. Thus we can only really conclude that
+the scatter is indeed large but cannot really report evidence for or against a
+clear trend with stellar mass. The
+error bars in our results are largely driven by statistical considerations
+based on the number of objects in each stellar mass bin, so we are unable to
+detect any potential real scatter in the data that may exist due to our method.
+
+The potential for many types of mergers and the differing gradients that
+result from the different stellar mass ratios and initial metallicity gradients of the
+progenitors as discussed in detail in \cite{dimatteo09a} make it difficult to
+conclude definitively if our observations agree with theory as simply adjusting
+the progenitor properties within reasonable values can change the model
+predictions dramatically. To make a more detailed comparison of our results to 
+theory would require modeling expected merger rates and stellar mass ratios to see if 
+our observations require extreme properties there. However, for now, we can 
+conclude that our results do not indicate any clear disagreements --- the 
+gradients we find are within the ranges predicted by models that incorporate 
+both monolithic collapse and mergers of many types into the evolution of 
+elliptical galaxies, and our gradients follow a generally observed trend with 
+stellar mass.
+
+\section{Conclusions}
+
+With such a wide variety of potential histories to produce the galaxies we 
+observed in SDSS, it's unsurprising that we find potential agreement with most 
+studies and models. However it's important to note that we arrived at these 
+results by averaging thousands of ellipticals that could have had many 
+different histories, not observing single galaxies like most observational 
+studies to this point. Equally important is that we find agreement both in 
+individual gradients and in trends with stellar mass. Small differences that do exist 
+may arise because of dependence on correlated properties 
+(our higher stellar mass galaxies are also by necessity of a volume limited sample 
+at higher redshift, for example), or it may be a real effect of having a much 
+larger observational sample that explores a larger amount of `galaxy evolution 
+space'.
+
+Our gradients in metallicity are similar but on the whole slightly shallower, 
+while our [Mg/Fe] gradient matches all the compared studies by being flat. In 
+terms of stellar mass dependence, we see a flattening of metallicity gradients as mass 
+increases in line with the compared studies. We find fairly similar central 
+values for [$\alpha$/Fe] (although slightly smaller), and also observe an 
+increase in central [$\alpha$/Fe] with stellar mass as the other studies do. Our
+metallicity also matches the studies we compared to, both in
+values and trends with mass.
+
+In total, we find that using this new technique to find the 
+metallicity inside an annulus of averaged galaxies agrees nearly completely 
+with both observations of individual galaxies and simulated predictions of 
+galaxies that have formed from mergers and/or monolithic collapse. This
+technique may make it easier in the future to observe higher redshift 
+metallicity gradients as telescopes do not need to be able to resolve 
+multiple regions of the same object, just to take a single spectra of many 
+objects over a wide redshift range.
+
+\begin{table*}[t!]
+  \centering
+  \caption{Gradients in Metallicity Indicators Versus Physical Radius}
+  \begin{tabular}{ c | c | c | c | c}
+Measure & $\log{M}$ Range & Gradient & Uncertainty in Gradient & Value at 2.5 kpc \\
+\hline
+$[MgFe]$ & $10.0 < \log(M) < 10.3$ &  -0.3459 &  0.0165 &  2.3806 \\
+$[MgFe]$ & $10.3 < \log(M) < 10.7$ &  -0.2350 &  0.0071 &  2.7848 \\
+$[MgFe]$ & $10.7 < \log(M) < 11.0$ &  -0.1774 &  0.0050 &  3.0405 \\
+$[MgFe]$ & $11.0 < \log(M) < 11.5$ &  -0.1557 &  0.0059 &  3.2256 \\
+$<Fe>$ & $10.0 < \log(M) < 10.3$ &  -0.2850 &  0.0274 &  2.2577 \\
+$<Fe>$ & $10.3 < \log(M) < 10.7$ &  -0.1636 &  0.0119 &  2.6156 \\
+$<Fe>$ & $10.7 < \log(M) < 11.0$ &  -0.1258 &  0.0081 &  2.7568 \\
+$<Fe>$ & $11.0 < \log(M) < 11.5$ &  -0.1224 &  0.0093 &  2.8320 \\
+Mg b & $10.0 < \log(M) < 10.3$ &  -0.4210 &  0.0182 &  2.3990 \\
+Mg b & $10.3 < \log(M) < 10.7$ &  -0.3213 &  0.0081 &  2.8556 \\
+Mg b & $10.7 < \log(M) < 11.0$ &  -0.2282 &  0.0059 &  3.2628 \\
+Mg b & $11.0 < \log(M) < 11.5$ &  -0.1803 &  0.0071 &  3.5739 \\
+C 4668 & $10.0 < \log(M) < 10.3$ &  -1.2082 &  0.0282 &  3.5129 \\
+C 4668 & $10.3 < \log(M) < 10.7$ &  -0.8433 &  0.0123 &  4.8868 \\
+C 4668 & $10.7 < \log(M) < 11.0$ &  -0.5490 &  0.0092 &  5.9018 \\
+C 4668 & $11.0 < \log(M) < 11.5$ &  -0.3974 &  0.0133 &  6.5159 \\
+Ca 4227 & $10.0 < \log(M) < 10.3$ &  -0.1588 &  0.0247 &  1.4001 \\
+Ca 4227 & $10.3 < \log(M) < 10.7$ &  -0.1405 &  0.0104 &  1.5255 \\
+Ca 4227 & $10.7 < \log(M) < 11.0$ &  -0.1062 &  0.0077 &  1.6505 \\
+Ca 4227 & $11.0 < \log(M) < 11.5$ &  -0.0924 &  0.0100 &  1.7353 \\
+Corrected H$\beta$ & $10.0 < \log(M) < 10.3$ &  0.1213 &  0.0210 &  2.1757 \\
+Corrected H$\beta$ & $10.3 < \log(M) < 10.7$ &  0.1074 &  0.0095 &  2.0681 \\
+Corrected H$\beta$ & $10.7 < \log(M) < 11.0$ &  0.1030 &  0.0077 &  1.9491 \\
+Corrected H$\beta$ & $11.0 < \log(M) < 11.5$ &  0.1038 &  0.0099 &  1.8309 \\
+\hline
+$[Fe/H]$ & $10.0 < \log(M) < 10.3$ &  -0.1385 &  0.0134 &  -0.2816 \\
+$[Fe/H]$ & $10.3 < \log(M) < 10.7$ &  -0.0432 &  0.0050 &  -0.0515 \\
+$[Fe/H]$ & $10.7 < \log(M) < 11.0$ &  -0.0352 &  0.0035 &  -0.0327 \\
+$[Fe/H]$ & $11.0 < \log(M) < 11.5$ &  -0.0313 &  0.0044 &  -0.0244 \\
+$[Mg/Fe]$ & $10.0 < \log(M) < 10.3$ &  0.0420 &  0.0308 &  0.0087 \\
+$[Mg/Fe]$ & $10.3 < \log(M) < 10.7$ &  -0.0092 &  0.0144 &  -0.0426 \\
+$[Mg/Fe]$ & $10.7 < \log(M) < 11.0$ &  0.0314 &  0.0103 &  0.0112 \\
+$[Mg/Fe]$ & $11.0 < \log(M) < 11.5$ &  0.0135 &  0.0098 &  0.0181 \\
+$[C/Fe]$ & $10.0 < \log(M) < 10.3$ &  -0.0654 &  0.0248 &  -0.0624 \\
+$[C/Fe]$ & $10.3 < \log(M) < 10.7$ &  -0.0746 &  0.0162 &  -0.0207 \\
+$[C/Fe]$ & $10.7 < \log(M) < 11.0$ &  -0.0138 &  0.0107 &  0.1226 \\
+$[C/Fe]$ & $11.0 < \log(M) < 11.5$ &  -0.0192 &  0.0118 &  0.1885 \\
+\end{tabular}
+  \tablecomments{The calculated gradients for each measured metallicity 
+indicator and the EZ\_Ages results binned by stellar mass. The units are 
+dex $\mathrm{kpc^{-1}}$. }
+  \label{table:gradients}
+\end{table*}
+
+\begin{table*}[t!]
+  \centering
+  \caption{Gradients in Metallicity Indicators Versus Scaled Radius}
+  \begin{tabular}{ c | c | c | c | c}
+Measure & $\log{M}$ Range & Gradient & Uncertainty in Gradient & Value at 0.5 $r/r_{e}$ \\
+\hline
+$[MgFe]$ & $10.0 < \log(M) < 10.3$ &  -0.5887 &  0.0281 &  2.9509 \\
+$[MgFe]$ & $10.3 < \log(M) < 10.7$ &  -0.6180 &  0.0187 &  3.0632 \\
+$[MgFe]$ & $10.7 < \log(M) < 11.0$ &  -0.7208 &  0.0202 &  3.1235 \\
+$[MgFe]$ & $11.0 < \log(M) < 11.5$ &  -1.0409 &  0.0394 &  3.0945 \\
+$<Fe>$ & $10.0 < \log(M) < 10.3$ &  -0.4852 &  0.0466 &  2.7277 \\
+$<Fe>$ & $10.3 < \log(M) < 10.7$ &  -0.4302 &  0.0312 &  2.8094 \\
+$<Fe>$ & $10.7 < \log(M) < 11.0$ &  -0.5111 &  0.0327 &  2.8156 \\
+$<Fe>$ & $11.0 < \log(M) < 11.5$ &  -0.8182 &  0.0623 &  2.7290 \\
+Mg b & $10.0 < \log(M) < 10.3$ &  -0.7165 &  0.0310 &  3.0931 \\
+Mg b & $10.3 < \log(M) < 10.7$ &  -0.8451 &  0.0213 &  3.2363 \\
+Mg b & $10.7 < \log(M) < 11.0$ &  -0.9274 &  0.0240 &  3.3695 \\
+Mg b & $11.0 < \log(M) < 11.5$ &  -1.2051 &  0.0475 &  3.4221 \\
+C 4668 & $10.0 < \log(M) < 10.3$ &  -2.0565 &  0.0480 &  5.5051 \\
+C 4668 & $10.3 < \log(M) < 10.7$ &  -2.2182 &  0.0322 &  5.8860 \\
+C 4668 & $10.7 < \log(M) < 11.0$ &  -2.2314 &  0.0374 &  6.1586 \\
+C 4668 & $11.0 < \log(M) < 11.5$ &  -2.6559 &  0.0891 &  6.1814 \\
+Ca 4227 & $10.0 < \log(M) < 10.3$ &  -0.2702 &  0.0420 &  1.6619 \\
+Ca 4227 & $10.3 < \log(M) < 10.7$ &  -0.3695 &  0.0274 &  1.6920 \\
+Ca 4227 & $10.7 < \log(M) < 11.0$ &  -0.4317 &  0.0314 &  1.7002 \\
+Ca 4227 & $11.0 < \log(M) < 11.5$ &  -0.6174 &  0.0671 &  1.6575 \\
+Corrected H$\beta$ & $10.0 < \log(M) < 10.3$ &  0.2064 &  0.0358 &  1.9757 \\
+Corrected H$\beta$ & $10.3 < \log(M) < 10.7$ &  0.2824 &  0.0249 &  1.9409 \\
+Corrected H$\beta$ & $10.7 < \log(M) < 11.0$ &  0.4187 &  0.0311 &  1.9009 \\
+Corrected H$\beta$ & $11.0 < \log(M) < 11.5$ &  0.6939 &  0.0663 &  1.9182 \\
+\hline
+$[Fe/H]$ & $10.0 < \log(M) < 10.3$ &  -0.2357 &  0.0228 &  -0.0532 \\
+$[Fe/H]$ & $10.3 < \log(M) < 10.7$ &  -0.1136 &  0.0130 &  -0.0003 \\
+$[Fe/H]$ & $10.7 < \log(M) < 11.0$ &  -0.1429 &  0.0144 &  -0.0162 \\
+$[Fe/H]$ & $11.0 < \log(M) < 11.5$ &  -0.2090 &  0.0293 &  -0.0508 \\
+$[Mg/Fe]$ & $10.0 < \log(M) < 10.3$ &  0.0715 &  0.0524 &  -0.0606 \\
+$[Mg/Fe]$ & $10.3 < \log(M) < 10.7$ &  -0.0242 &  0.0380 &  -0.0317 \\
+$[Mg/Fe]$ & $10.7 < \log(M) < 11.0$ &  0.1278 &  0.0420 &  -0.0035 \\
+$[Mg/Fe]$ & $11.0 < \log(M) < 11.5$ &  0.0902 &  0.0653 &  0.0295 \\
+$[C/Fe]$ & $10.0 < \log(M) < 10.3$ &  -0.1112 &  0.0422 &  0.0453 \\
+$[C/Fe]$ & $10.3 < \log(M) < 10.7$ &  -0.1961 &  0.0426 &  0.0676 \\
+$[C/Fe]$ & $10.7 < \log(M) < 11.0$ &  -0.0561 &  0.0433 &  0.1291 \\
+$[C/Fe]$ & $11.0 < \log(M) < 11.5$ &  -0.1286 &  0.0791 &  0.1723 \\
+\end{tabular}
+  \tablecomments{The calculated gradients for each measured metallicity 
+indicator and the EZ\_Ages results binned by stellar mass. The units are dex.}
+  \label{table:gradients_re}
+\end{table*}
+
+\begin{table*}[t!]
+  \centering
+  \caption{Gradients in Metallicity Indicators Versus Physical Radius}
+  \begin{tabular}{ c | c | c | c | c}
+Measure & $\log{M}$ Range & Gradient & Uncertainty in Gradient & Value at 2.5 kpc \\
+\hline
+$[MgFe]$ & $30 < Vdisp < 125$ &  -0.1313 &  0.0150 &  2.5473 \\
+$[MgFe]$ & $125 < Vdisp < 185$ &  -0.1639 &  0.0072 &  2.8033 \\
+$[MgFe]$ & $185 < Vdisp < 230$ &  -0.1497 &  0.0053 &  3.0310 \\
+$[MgFe]$ & $230 < Vdisp < 325$ &  -0.1354 &  0.0053 &  3.2766 \\
+$<Fe>$ & $30 < Vdisp < 125$ &  -0.1650 &  0.0254 &  2.3923 \\
+$<Fe>$ & $125 < Vdisp < 185$ &  -0.1435 &  0.0121 &  2.6207 \\
+$<Fe>$ & $185 < Vdisp < 230$ &  -0.1285 &  0.0086 &  2.7361 \\
+$<Fe>$ & $230 < Vdisp < 325$ &  -0.1029 &  0.0084 &  2.8605 \\
+Mg b & $30 < Vdisp < 125$ &  -0.0889 &  0.0168 &  2.6421 \\
+Mg b & $125 < Vdisp < 185$ &  -0.1824 &  0.0083 &  2.9171 \\
+Mg b & $185 < Vdisp < 230$ &  -0.1679 &  0.0063 &  3.2679 \\
+Mg b & $230 < Vdisp < 325$ &  -0.1618 &  0.0063 &  3.6465 \\
+C 4668 & $30 < Vdisp < 125$ &  -0.4863 &  0.0266 &  4.2496 \\
+C 4668 & $125 < Vdisp < 185$ &  -0.6038 &  0.0127 &  5.0268 \\
+C 4668 & $185 < Vdisp < 230$ &  -0.4308 &  0.0098 &  5.9305 \\
+C 4668 & $230 < Vdisp < 325$ &  -0.3812 &  0.0117 &  6.6045 \\
+Ca 4227 & $30 < Vdisp < 125$ &  -0.0666 &  0.0235 &  1.4676 \\
+Ca 4227 & $125 < Vdisp < 185$ &  -0.0946 &  0.0108 &  1.5488 \\
+Ca 4227 & $185 < Vdisp < 230$ &  -0.0895 &  0.0082 &  1.6448 \\
+Ca 4227 & $230 < Vdisp < 325$ &  -0.0893 &  0.0088 &  1.7574 \\
+Corrected H$\beta$ & $30 < Vdisp < 125$ &  -0.0321 &  0.0195 &  2.1332 \\
+Corrected H$\beta$ & $125 < Vdisp < 185$ &  0.0426 &  0.0097 &  2.0668 \\
+Corrected H$\beta$ & $185 < Vdisp < 230$ &  0.0882 &  0.0081 &  1.9758 \\
+Corrected H$\beta$ & $230 < Vdisp < 325$ &  0.0978 &  0.0086 &  1.7910 \\
+\hline
+$[Fe/H]$ & $30 < Vdisp < 125$ &  -0.1178 &  0.0123 &  -0.2207 \\
+$[Fe/H]$ & $125 < Vdisp < 185$ &  -0.0617 &  0.0049 &  -0.0567 \\
+$[Fe/H]$ & $185 < Vdisp < 230$ &  -0.0409 &  0.0038 &  -0.0301 \\
+$[Fe/H]$ & $230 < Vdisp < 325$ &  -0.0226 &  0.0038 &  -0.0246 \\
+$[Mg/Fe]$ & $30 < Vdisp < 125$ &  0.0387 &  0.0171 &  -0.0100 \\
+$[Mg/Fe]$ & $125 < Vdisp < 185$ &  -0.0071 &  0.0155 &  -0.0477 \\
+$[Mg/Fe]$ & $185 < Vdisp < 230$ &  0.0335 &  0.0123 &  -0.0176 \\
+$[Mg/Fe]$ & $230 < Vdisp < 325$ &  0.0088 &  0.0143 &  0.0101 \\
+$[C/Fe]$ & $30 < Vdisp < 125$ &  -0.0339 &  0.0257 &  -0.0427 \\
+$[C/Fe]$ & $125 < Vdisp < 185$ &  -0.0497 &  0.0155 &  0.0113 \\
+$[C/Fe]$ & $185 < Vdisp < 230$ &  0.0058 &  0.0121 &  0.1278 \\
+$[C/Fe]$ & $230 < Vdisp < 325$ &  -0.0376 &  0.0091 &  0.1850 \\
+\end{tabular}
+  \tablecomments{The calculated gradients for each measured metallicity 
+indicator and the EZ\_Ages results for the data binned by velocity dispersion. The units 
+are dex $\mathrm{kpc^{-1}}$. }
+  \label{table:gradients_sigma}
+\end{table*}
+
+\begin{table*}[t!]
+  \centering
+  \caption{Gradients in Metallicity Indicators Versus Scaled Radius}
+  \begin{tabular}{ c | c | c | c | c}
+Measure & $\log{M}$ Range & Gradient & Uncertainty in Gradient & Value at 0.5 $r/r_{e}$ \\
+\hline
+$[MgFe]$ & $30 < Vdisp < 125$ &  -0.2425 &  0.0276 &  2.7544 \\
+$[MgFe]$ & $125 < Vdisp < 185$ &  -0.4420 &  0.0195 &  2.9921 \\
+$[MgFe]$ & $185 < Vdisp < 230$ &  -0.6057 &  0.0216 &  3.1024 \\
+$[MgFe]$ & $230 < Vdisp < 325$ &  -0.7865 &  0.0305 &  3.2219 \\
+$<Fe>$ & $30 < Vdisp < 125$ &  -0.3046 &  0.0469 &  2.6525 \\
+$<Fe>$ & $125 < Vdisp < 185$ &  -0.3870 &  0.0327 &  2.7860 \\
+$<Fe>$ & $185 < Vdisp < 230$ &  -0.5198 &  0.0346 &  2.7974 \\
+$<Fe>$ & $230 < Vdisp < 325$ &  -0.5977 &  0.0485 &  2.8190 \\
+Mg b & $30 < Vdisp < 125$ &  -0.1642 &  0.0310 &  2.7822 \\
+Mg b & $125 < Vdisp < 185$ &  -0.4919 &  0.0223 &  3.1273 \\
+Mg b & $185 < Vdisp < 230$ &  -0.6793 &  0.0254 &  3.3480 \\
+Mg b & $230 < Vdisp < 325$ &  -0.9397 &  0.0363 &  3.5813 \\
+C 4668 & $30 < Vdisp < 125$ &  -0.8978 &  0.0491 &  5.0163 \\
+C 4668 & $125 < Vdisp < 185$ &  -1.6281 &  0.0342 &  5.7222 \\
+C 4668 & $185 < Vdisp < 230$ &  -1.7429 &  0.0395 &  6.1360 \\
+C 4668 & $230 < Vdisp < 325$ &  -2.2134 &  0.0678 &  6.4508 \\
+Ca 4227 & $30 < Vdisp < 125$ &  -0.1230 &  0.0434 &  1.5727 \\
+Ca 4227 & $125 < Vdisp < 185$ &  -0.2550 &  0.0291 &  1.6577 \\
+Ca 4227 & $185 < Vdisp < 230$ &  -0.3620 &  0.0332 &  1.6875 \\
+Ca 4227 & $230 < Vdisp < 325$ &  -0.5183 &  0.0512 &  1.7214 \\
+Corrected H$\beta$ & $30 < Vdisp < 125$ &  -0.0593 &  0.0360 &  2.1838 \\
+Corrected H$\beta$ & $125 < Vdisp < 185$ &  0.1149 &  0.0262 &  2.0177 \\
+Corrected H$\beta$ & $185 < Vdisp < 230$ &  0.3568 &  0.0327 &  1.9337 \\
+Corrected H$\beta$ & $230 < Vdisp < 325$ &  0.5680 &  0.0501 &  1.8304 \\
+\hline
+$[Fe/H]$ & $30 < Vdisp < 125$ &  -0.2176 &  0.0227 &  -0.0348 \\
+$[Fe/H]$ & $125 < Vdisp < 185$ &  -0.1662 &  0.0133 &  0.0143 \\
+$[Fe/H]$ & $185 < Vdisp < 230$ &  -0.1653 &  0.0154 &  -0.0106 \\
+$[Fe/H]$ & $230 < Vdisp < 325$ &  -0.1314 &  0.0222 &  -0.0337 \\
+$[Mg/Fe]$ & $30 < Vdisp < 125$ &  0.0714 &  0.0315 &  -0.0710 \\
+$[Mg/Fe]$ & $125 < Vdisp < 185$ &  -0.0191 &  0.0418 &  -0.0395 \\
+$[Mg/Fe]$ & $185 < Vdisp < 230$ &  0.1355 &  0.0497 &  -0.0335 \\
+$[Mg/Fe]$ & $230 < Vdisp < 325$ &  0.0511 &  0.0828 &  0.0136 \\
+$[C/Fe]$ & $30 < Vdisp < 125$ &  -0.0625 &  0.0475 &  0.0107 \\
+$[C/Fe]$ & $125 < Vdisp < 185$ &  -0.1339 &  0.0418 &  0.0685 \\
+$[C/Fe]$ & $185 < Vdisp < 230$ &  0.0233 &  0.0491 &  0.1250 \\
+$[C/Fe]$ & $230 < Vdisp < 325$ &  -0.2186 &  0.0531 &  0.1699 \\
+\end{tabular}
+  \tablecomments{The calculated gradients for each measured metallicity 
+indicator and the EZ\_Ages results binned by velocity dispersion. The units are dex.}
+  \label{table:gradients_re_sigma}
+\end{table*}
+
+\clearpage
+
+\bibliographystyle{apj} 
+\bibliography{Metallicity_Gradient}
+
+\end{document}
