@@ -1,0 +1,419 @@
+@ARTICLE{blanton05a,
+   author = {{Blanton}, M.~R. and {Schlegel}, D.~J. and {Strauss}, M.~A. and 
+	{Brinkmann}, J. and {Finkbeiner}, D. and {Fukugita}, M. and 
+	{Gunn}, J.~E. and {Hogg}, D.~W. and {Ivezi{\'c}}, {\v Z}. and 
+	{Knapp}, G.~R. and {Lupton}, R.~H. and {Munn}, J.~A. and {Schneider}, D.~P. and 
+	{Tegmark}, M. and {Zehavi}, I.},
+    title = "{New York University Value-Added Galaxy Catalog: A Galaxy Catalog Based on New Public Surveys}",
+  journal = {\aj},
+   eprint = {astro-ph/0410166},
+ keywords = {Galaxies: Distances and Redshifts, Galaxies: Photometry, Galaxies: Statistics},
+     year = 2005,
+    month = jun,
+   volume = 129,
+    pages = {2562-2578},
+      doi = {10.1086/429803},
+   adsurl = {http://adsabs.harvard.edu/abs/2005AJ....129.2562B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{yan06a,
+   author = {{Yan}, R. and {Newman}, J.~A. and {Faber}, S.~M. and {Konidaris}, N. and 
+	{Koo}, D. and {Davis}, M.},
+    title = "{On the Origin of [O II] Emission in Red-Sequence and Poststarburst Galaxies}",
+  journal = {\apj},
+   eprint = {astro-ph/0512446},
+ keywords = {Galaxies: Active, Galaxies: Evolution, Galaxies: Fundamental Parameters, Galaxies: ISM, Galaxies: Statistics},
+     year = 2006,
+    month = sep,
+   volume = 648,
+    pages = {281-298},
+      doi = {10.1086/505629},
+   adsurl = {http://adsabs.harvard.edu/abs/2006ApJ...648..281Y},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{yan12a,
+   author = {{Yan}, R. and {Blanton}, M.~R.},
+    title = "{The Nature of LINER-like Emission in Red Galaxies}",
+  journal = {\apj},
+archivePrefix = "arXiv",
+   eprint = {1109.1280},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: active, galaxies: elliptical and lenticular, cD, galaxies: ISM, ISM: kinematics and dynamics, stars: AGB and post-AGB},
+     year = 2012,
+    month = mar,
+   volume = 747,
+      eid = {61},
+    pages = {61},
+      doi = {10.1088/0004-637X/747/1/61},
+   adsurl = {http://adsabs.harvard.edu/abs/2012ApJ...747...61Y},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{zhu10a,
+   author = {{Zhu}, G. and {Blanton}, M.~R. and {Moustakas}, J.},
+    title = "{Stellar Populations of Elliptical Galaxies in the Local Universe}",
+  journal = {\apj},
+archivePrefix = "arXiv",
+   eprint = {1006.5055},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: elliptical and lenticular, cD, galaxies: evolution, galaxies: formation, galaxies: fundamental parameters, galaxies: stellar content},
+     year = 2010,
+    month = oct,
+   volume = 722,
+    pages = {491-519},
+      doi = {10.1088/0004-637X/722/1/491},
+   adsurl = {http://adsabs.harvard.edu/abs/2010ApJ...722..491Z},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{trager00a,
+   author = {{Trager}, S.~C. and {Faber}, S.~M. and {Worthey}, G. and {Gonz{\'a}lez}, J.~J.
+	},
+    title = "{The Stellar Population Histories of Local Early-Type Galaxies. I. Population Parameters}",
+  journal = {\aj},
+   eprint = {astro-ph/0001072},
+ keywords = {GALAXIES: ABUNDANCES, GALAXIES: ELLIPTICAL AND LENTICULAR, CD, GALAXIES: EVOLUTION, GALAXIES: STELLAR CONTENT},
+     year = 2000,
+    month = apr,
+   volume = 119,
+    pages = {1645-1676},
+      doi = {10.1086/301299},
+   adsurl = {http://adsabs.harvard.edu/abs/2000AJ....119.1645T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{mehlert00a,
+   author = {{Mehlert}, D. and {Saglia}, R.~P. and {Bender}, R. and {Wegner}, G.
+	},
+    title = "{Spatially resolved spectroscopy of Coma cluster early-type galaxies. I. The database}",
+  journal = {\aaps},
+ keywords = {GALAXIES: ELLIPTICAL AND LENTICULAR, CD, KINEMATICS AND DYNAMICS, STELLAR CONTENT, ABUNDANCES, FORMATION},
+     year = 2000,
+    month = feb,
+   volume = 141,
+    pages = {449-468},
+      doi = {10.1051/aas:2000322},
+   adsurl = {http://adsabs.harvard.edu/abs/2000A%26AS..141..449M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{graves08a,
+   author = {{Graves}, G.~J. and {Schiavon}, R.~P.},
+    title = "{Measuring Ages and Elemental Abundances from Unresolved Stellar Populations: Fe, Mg, C, N, and Ca}",
+  journal = {\apjs},
+archivePrefix = "arXiv",
+   eprint = {0803.1483},
+ keywords = {Galaxies: Abundances, Galaxies: Star Clusters, Methods: Data Analysis},
+     year = 2008,
+    month = aug,
+   volume = 177,
+    pages = {446-464},
+      doi = {10.1086/588097},
+   adsurl = {http://adsabs.harvard.edu/abs/2008ApJS..177..446G},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{schiavon07a,
+   author = {{Schiavon}, R.~P.},
+    title = "{Population Synthesis in the Blue. IV. Accurate Model Predictions for Lick Indices and UBV Colors in Single Stellar Populations}",
+  journal = {\apjs},
+   eprint = {astro-ph/0611464},
+ keywords = {Galaxies: Abundances, Galaxies: Elliptical and Lenticular, cD, Galaxies: Evolution, Galaxies: Stellar Content, Galaxy: Globular Clusters: General, Stars: Fundamental Parameters},
+     year = 2007,
+    month = jul,
+   volume = 171,
+    pages = {146-205},
+      doi = {10.1086/511753},
+   adsurl = {http://adsabs.harvard.edu/abs/2007ApJS..171..146S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{greene13a,
+   author = {{Greene}, J.~E. and {Murphy}, J.~D. and {Graves}, G.~J. and 
+	{Gunn}, J.~E. and {Raskutti}, S. and {Comerford}, J.~M. and 
+	{Gebhardt}, K.},
+    title = "{The Stellar Halos of Massive Elliptical Galaxies. II. Detailed Abundance Ratios at Large Radius}",
+  journal = {\apj},
+archivePrefix = "arXiv",
+   eprint = {1308.2682},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: abundances, galaxies: elliptical and lenticular, cD, galaxies: evolution},
+     year = 2013,
+    month = oct,
+   volume = 776,
+      eid = {64},
+    pages = {64},
+      doi = {10.1088/0004-637X/776/2/64},
+   adsurl = {http://adsabs.harvard.edu/abs/2013ApJ...776...64G},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{mehlert03a,
+   author = {{Mehlert}, D. and {Thomas}, D. and {Saglia}, R.~P. and {Bender}, R. and 
+	{Wegner}, G.},
+    title = "{Spatially resolved spectroscopy of Coma cluster early-type galaxies. III. The stellar population gradients}",
+  journal = {\aap},
+   eprint = {astro-ph/0306219},
+ keywords = {galaxies: clusters: individual: Coma, galaxies: elliptical and lenticular, cD, galaxies: stellar content},
+     year = 2003,
+    month = aug,
+   volume = 407,
+    pages = {423-435},
+      doi = {10.1051/0004-6361:20030886},
+   adsurl = {http://adsabs.harvard.edu/abs/2003A%26A...407..423M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{yuan13a,
+   author = {{Yuan}, T.-T. and {Kewley}, L.~J. and {Rich}, J.},
+    title = "{Systematics in Metallicity Gradient Measurements. I. Angular Resolution, Signal to Noise, and Annular Binning}",
+  journal = {\apj},
+archivePrefix = "arXiv",
+   eprint = {1302.6232},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: abundances, galaxies: evolution, galaxies: high-redshift, gravitational lensing: strong},
+     year = 2013,
+    month = apr,
+   volume = 767,
+      eid = {106},
+    pages = {106},
+      doi = {10.1088/0004-637X/767/2/106},
+   adsurl = {http://adsabs.harvard.edu/abs/2013ApJ...767..106Y},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{chiosi12a,
+   author = {{Chiosi}, C. and {Merlin}, E. and {Piovan}, L.},
+    title = "{The Origin of the Mass-Radius Relation of Early-Type Galaxies}",
+  journal = {ArXiv e-prints},
+archivePrefix = "arXiv",
+   eprint = {1206.2532},
+ primaryClass = "astro-ph.CO",
+ keywords = {Astrophysics - Cosmology and Extragalactic Astrophysics},
+     year = 2012,
+    month = jun,
+   adsurl = {http://adsabs.harvard.edu/abs/2012arXiv1206.2532C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{shen03a,
+   author = {{Shen}, S. and {Mo}, H.~J. and {White}, S.~D.~M. and {Blanton}, M.~R. and 
+	{Kauffmann}, G. and {Voges}, W. and {Brinkmann}, J. and {Csabai}, I.
+	},
+    title = "{The size distribution of galaxies in the Sloan Digital Sky Survey}",
+  journal = {\mnras},
+   eprint = {astro-ph/0301527},
+ keywords = {galaxies: formation, galaxies: fundamental parameters, galaxies: statistics, galaxies: structure},
+     year = 2003,
+    month = aug,
+   volume = 343,
+    pages = {978-994},
+      doi = {10.1046/j.1365-8711.2003.06740.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2003MNRAS.343..978S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{pipino10a,
+   author = {{Pipino}, A. and {D'Ercole}, A. and {Chiappini}, C. and {Matteucci}, F.
+	},
+    title = "{Abundance gradient slopes versus mass in spheroids: predictions by monolithic models}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1005.2154},
+ primaryClass = "astro-ph.CO",
+ keywords = {Galaxy: bulge, galaxies: bulges, galaxies: elliptical and lenticular, CD, galaxies: evolution, galaxies: formation},
+     year = 2010,
+    month = sep,
+   volume = 407,
+    pages = {1347-1359},
+      doi = {10.1111/j.1365-2966.2010.17007.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2010MNRAS.407.1347P},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{kobayashi03a,
+   author = {{Kobayashi}, C.},
+    title = "{The origin of elliptical galaxies inferred from their metallicity gradients}",
+  journal = {\apss},
+     year = 2003,
+    month = apr,
+   volume = 284,
+    pages = {853-856},
+      doi = {10.1023/A:1024066522919},
+   adsurl = {http://adsabs.harvard.edu/abs/2003Ap%26SS.284..853K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{hopkins09a,
+   author = {{Hopkins}, P.~F. and {Cox}, T.~J. and {Dutta}, S.~N. and {Hernquist}, L. and 
+	{Kormendy}, J. and {Lauer}, T.~R.},
+    title = "{Dissipation and Extra Light in Galactic Nuclei. II. ''Cusp'' Ellipticals}",
+  journal = {\apjs},
+archivePrefix = "arXiv",
+   eprint = {0805.3533},
+ keywords = {cosmology: theory, galaxies: active, galaxies: evolution, galaxies: nuclei, quasars: general},
+     year = 2009,
+    month = mar,
+   volume = 181,
+    pages = {135-182},
+      doi = {10.1088/0067-0049/181/1/135},
+   adsurl = {http://adsabs.harvard.edu/abs/2009ApJS..181..135H},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{dimatteo09a,
+   author = {{Di Matteo}, P. and {Pipino}, A. and {Lehnert}, M.~D. and {Combes}, F. and 
+	{Semelin}, B.},
+    title = "{On the survival of metallicity gradients to major dry-mergers}",
+  journal = {\aap},
+archivePrefix = "arXiv",
+   eprint = {0903.2846},
+ primaryClass = "astro-ph.CO",
+ keywords = {methods: N-body simulations, methods: numerical, galaxies: evolution, galaxies: interaction, galaxies: elliptical and lenticular, cD},
+     year = 2009,
+    month = may,
+   volume = 499,
+    pages = {427-437},
+      doi = {10.1051/0004-6361/200911715},
+   adsurl = {http://adsabs.harvard.edu/abs/2009A%26A...499..427D},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{spolaor10a,
+   author = {{Spolaor}, M. and {Kobayashi}, C. and {Forbes}, D.~A. and {Couch}, W.~J. and 
+	{Hau}, G.~K.~T.},
+    title = "{Early-type galaxies at large galactocentric radii - II. Metallicity gradients and the [Z/H]-mass, [{$\alpha$}/Fe]-mass relations}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1006.1698},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: abundances, galaxies: dwarf, galaxies: elliptical and lenticular, cD, galaxies: evolution, galaxies: formation, galaxies: stellar content},
+     year = 2010,
+    month = oct,
+   volume = 408,
+    pages = {272-292},
+      doi = {10.1111/j.1365-2966.2010.17080.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2010MNRAS.408..272S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{kawata03a,
+   author = {{Kawata}, D. and {Gibson}, B.~K.},
+    title = "{GCD+: a new chemodynamical approach to modelling supernovae and chemical enrichment in elliptical galaxies}",
+  journal = {\mnras},
+   eprint = {astro-ph/0212401},
+ keywords = {galaxies: elliptical and lenticular, cD, galaxies: evolution, galaxies: formation, galaxies: stellar content},
+     year = 2003,
+    month = apr,
+   volume = 340,
+    pages = {908-922},
+      doi = {10.1046/j.1365-8711.2003.06356.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2003MNRAS.340..908K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{ogando05a,
+   author = {{Ogando}, R.~L.~C. and {Maia}, M.~A.~G. and {Chiappini}, C. and 
+	{Pellegrini}, P.~S. and {Schiavon}, R.~P. and {da Costa}, L.~N.
+	},
+    title = "{Do Observed Metallicity Gradients of Early-Type Galaxies Support a Hybrid Formation Scenario?}",
+  journal = {\apjl},
+   eprint = {astro-ph/0509142},
+ keywords = {Galaxies: Abundances, Galaxies: Elliptical and Lenticular, cD, Galaxies: Evolution, Galaxies: Formation},
+     year = 2005,
+    month = oct,
+   volume = 632,
+    pages = {L61-L64},
+      doi = {10.1086/497824},
+   adsurl = {http://adsabs.harvard.edu/abs/2005ApJ...632L..61O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{thomas03a,
+   author = {{Thomas}, D. and {Maraston}, C. and {Bender}, R.},
+    title = "{Stellar population models of Lick indices with variable element abundance ratios}",
+  journal = {\mnras},
+   eprint = {astro-ph/0209250},
+ keywords = {stars: abundances, Galaxy: abundances, globular clusters: general, galaxies: elliptical and lenticular, cD, galaxies: stellar content},
+     year = 2003,
+    month = mar,
+   volume = 339,
+    pages = {897-911},
+      doi = {10.1046/j.1365-8711.2003.06248.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2003MNRAS.339..897T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{labarbera12a,
+   author = {{La Barbera}, F. and {Ferreras}, I. and {de Carvalho}, R.~R. and 
+	{Bruzual}, G. and {Charlot}, S. and {Pasquali}, A. and {Merlin}, E.
+	},
+    title = "{SPIDER - VII. Revealing the stellar population content of massive early-type galaxies out to 8R$_{e}$}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1208.0587},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: elliptical and lenticular, cD, galaxies: evolution, galaxies: formation, galaxies: fundamental parameters, galaxies: groups: general, galaxies: stellar content},
+     year = 2012,
+    month = nov,
+   volume = 426,
+    pages = {2300-2317},
+      doi = {10.1111/j.1365-2966.2012.21848.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2012MNRAS.426.2300L},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{pastorello14a,
+   author = {{Pastorello}, N. and {Forbes}, D.~A. and {Foster}, C. and {Brodie}, J.~P. and 
+	{Usher}, C. and {Romanowsky}, A.~J. and {Strader}, J. and {Arnold}, J.~A.
+	},
+    title = "{The SLUGGS survey: Exploring the metallicity gradients of nearby early-type galaxies to large radii}",
+  journal = {ArXiv e-prints},
+archivePrefix = "arXiv",
+   eprint = {1405.2338},
+ keywords = {Astrophysics - Astrophysics of Galaxies},
+     year = 2014,
+    month = may,
+   adsurl = {http://adsabs.harvard.edu/abs/2014arXiv1405.2338P},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{kuntschner10a,
+   author = {{Kuntschner}, H. and {Emsellem}, E. and {Bacon}, R. and {Cappellari}, M. and 
+	{Davies}, R.~L. and {de Zeeuw}, P.~T. and {Falc{\'o}n-Barroso}, J. and 
+	{Krajnovi{\'c}}, D. and {McDermid}, R.~M. and {Peletier}, R.~F. and 
+	{Sarzi}, M. and {Shapiro}, K.~L. and {van den Bosch}, R.~C.~E. and 
+	{van de Ven}, G.},
+    title = "{The SAURON project - XVII. Stellar population analysis of the absorption line strength maps of 48 early-type galaxies}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1006.1574},
+ primaryClass = "astro-ph.GA",
+ keywords = {galaxies: bulges, galaxies: elliptical and lenticular, cD, galaxies: evolution, galaxies: formation, galaxies: kinematics and dynamics, galaxies: nuclei},
+     year = 2010,
+    month = oct,
+   volume = 408,
+    pages = {97-132},
+      doi = {10.1111/j.1365-2966.2010.17161.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2010MNRAS.408...97K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{rawle10a,
+   author = {{Rawle}, T.~D. and {Smith}, R.~J. and {Lucey}, J.~R.},
+    title = "{Stellar population gradients in early-type cluster galaxies}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0909.3844},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: elliptical and lenticular, cD, galaxies: stellar content},
+     year = 2010,
+    month = jan,
+   volume = 401,
+    pages = {852-866},
+      doi = {10.1111/j.1365-2966.2009.15722.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2010MNRAS.401..852R},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
