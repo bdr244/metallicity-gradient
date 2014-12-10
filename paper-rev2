@@ -681,12 +681,29 @@ sample.  [$\alpha$/Fe] shows an increase with velocity dispersion that
 is $\sim 0.1$ dex across our whole range of masses or velocity
 dispersion.
 
-{\bf Need to look in data tables at Kuntschner and Rawle trends}
+\cite{kuntschner10a} reports their central values at R_{e}/8, slightly more
+internal than ours but comparable. They too find no monotonic dependence
+of the central metallicities on velocity disperson or mass, although their results
+have more scatter (ranging from $0.2$ to around $-0.4$) after we apply the
+[Z/H] to [Fe/H] conversion. Again similarly, they find that the central [$\alpha$/Fe] does
+increase with mass, although there is a constant offset of about $0.2$ dex higher
+in their central values than we find.
+
+Turning to \cite{rawle10a}, we find central values recorded at R_{e}/3, again
+comparable to our central annulus radius. As with Kuntschner, after converting their reported
+[Z/H] values to [Fe/H], there is no clear trend with central velocity dispersion and a larger
+scatter than we report. Their [$\alpha$/Fe] central trend with central velocity dispersion
+also matches ours with a clear increase as velocity dispersion increases, but as with \cite{kuntschner10a},
+they also find systematically higher values for the central [$\alpha$/Fe] than we record.
 
 \cite{spolaor10a} detect an increase with mass of central [Z/H] and
-     [$\alpha$/Fe] at radii similar to the smallest radii we probe
-     ($R_e\8$); between 100 and 300 km s$^{-1}$ they detect an
-     increase in [Z/H] of 0.3 dex and in [$\alpha$/Fe] of 0.2 dex.
+[$\alpha$/Fe] at radii similar to the smallest radii we probe
+($R_e\8$); between 100 and 300 km s$^{-1}$ they detect an
+increase in [Z/H] of 0.3 dex and in [$\alpha$/Fe] of 0.2 dex. When applying the
+conversion from [Z/H] to [Fe/H], this is close to our results, although a slight
+central [Fe/H] increase as a function of velocity still remains that we do not detect
+and the dependence of [$\alpha$/Fe] is stronger than what we find, matching
+more closely \cite{kuntschner10a} and \cite{rawle10a}.
 
 Using data with similar radial coverage, \citet{mehlert03a} found
 similar dependences. These results indicate stronger mass dependence
@@ -765,7 +782,8 @@ There is good agreement with finding a negative [Fe/H] gradient, a
 constant [Mg/Fe], and a very slightly negative [C/Fe] gradient, even
 if the numerical results presented have a fairly large amount of
 scatter. For trends in central values as mass (or velocity dispersion)
-increases, we find agreement with a constant central [Mg/Fe] and
+increases, we find general agreement with an increasing central [Mg/Fe] (although our dependence
+is less than other compared studies by about 0.1 dex) and constant central
 [Fe/H], and increasing central [C/Fe] (where central in this data set
 means within $\sim 0.5$ kpc).
 
