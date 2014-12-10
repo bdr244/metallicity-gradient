@@ -590,10 +590,6 @@ We have three main results: gradients for the EZ\_AGES outputs
 mass, and the trend in their gradients with mass. Each of these have
 been studied in other papers and we compare with those results here.
 
-% Question: TMB isn't the only possible difference ... indeed, for
-% Kuntschner they quote [Z/H] but use Schiavon. They also find that
-% [Z/H] is higher for TMB than Schiavon at high [Z/H] (0.1 dex effect)
-
 Some of the papers we will examine do not use the same stellar
 population models --- they instead use the slightly different models
 from \cite{thomas03a} (TMB).  These models differ slightly in the
@@ -608,29 +604,22 @@ $\alpha$-elements track Mg, so we can compare our [Mg/Fe] to the
 
 \subsection{Gradients}
 
-% NOTE I CHANGED UNITS: IS THIS RIGHT!!
-
-% Question: Rawle sees -0.13 for [Z/H] but -0.10 for [alpha/Fe];
-% doesn't that mean ~ 0 for [Fe/H] ??? But is the Thomas conversion
-% appropriate here??
-
-% Get: data tablse for Rawle & Kuntschner
-% Hopkins 
-% Kobayashi
-% di Mattteo
-
 Two large studies integral field studies of the metallicity gradients
 in inner regions of galaxies cover well the same radial range we
 cover: \cite{rawle10a} and \cite{kuntschner10a}. Both these studies
 measure [Z/H] values out to $1 R_{e}$.  Both only calculate a
-[$\alpha$/Fe] ratio (which tracks Mg) and not a [C/Fe] ratio. Both
-studies find a slightly negative logarithmic metallicity gradient,
+[$\alpha$/Fe] ratio (which tracks Mg) and not a [C/Fe] ratio. When applying
+the [Z/H] to [Fe/H] conversion to match our results, both
+studies find a slightly negative logarithmic metallicity gradient (however,
+note that the [Fe/H gradient in \cite{rawle10a} is consistent with zero),
 matching our observations --- \cite{rawle10a} finds an average
-gradient of $-0.13 \pm 0.04$ and \cite{kuntschner10a} finds an average
+gradient of $-0.05 \pm 0.05$ and \cite{kuntschner10a} finds an average
 gradient of $-0.25 \pm 0.11$, with values ranging from $-0.1$ to
 $-0.5$ much like our results and other studies. Also in agreement with
 our observations, \cite{kuntschner10a} report an [$\alpha$/Fe]
-gradient consistent with zero.
+gradient consistent with zero. /cite{rawle10a} finds a very slightly negative
+[$\alpha/Fe] gradient of $-0.06 \pm 0.03$, which indicates a slight trend unlike
+our data, but isn't outside of our error bar range.
 
 \cite{mehlert03a} study the metallicity gradients of early-type
 galaxies in the Coma Cluster out to about $R_{e}$, also similar to our
